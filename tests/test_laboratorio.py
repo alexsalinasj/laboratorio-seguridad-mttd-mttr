@@ -42,11 +42,15 @@ class LaboratorioTest(unittest.TestCase):
         self.assertEqual(fila[1:3], ("usuario_01", "u01@example.test"))
         self.assertNotEqual(fila[3], "Clave con espacio 123")
         self.assertTrue(check_password_hash(fila[3], "Clave con espacio 123"))
+        self.assertEqual(self.registrar(usuario="usuario_02", correo="u02@example.test").status_code, 201)
+        with closing(sqlite3.connect(self.bd)) as conexion:
+            self.assertEqual(conexion.execute("SELECT COUNT(*) FROM usuarios").fetchone()[0], 2)
 
     def test_validaciones_duplicados_y_normalizacion(self):
         for usuario in ("abc", "nombre con espacio", "usuario#01", "x" * 21):
             self.assertEqual(self.registrar(usuario=usuario).status_code, 400)
-        self.assertEqual(self.registrar(correo="usuario@").status_code, 400)
+        for correo in ("usuario", "usuario@", "usuario@correo."):
+            self.assertEqual(self.registrar(correo=correo).status_code, 400)
         self.assertEqual(self.registrar(password="abc123").status_code, 400)
         self.assertEqual(self.registrar(usuario="  usuario_01  ", correo="  u01@example.test  ").status_code, 201)
         self.assertEqual(self.registrar().status_code, 409)

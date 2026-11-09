@@ -1,6 +1,6 @@
 # Laboratorio de ciberseguridad: MTTD y MTTR
 
-Práctica académica de la Unidad 3, **Código Seguro y Modelo OWASP**. Una aplicación Flask registra usuarios ficticios, valida entradas, protege contraseñas y registra eventos de autenticación. Un detector analiza tres fallos consecutivos por usuario, muestra una alerta y registra una respuesta de bloqueo **simulado**.
+Práctica académica de la Unidad 3, **Código Seguro y Modelo OWASP**, cotejada con la guía `Práctica de Seguridad MTTD y MTTR.pdf`. Una aplicación Flask registra usuarios ficticios, valida entradas, protege contraseñas y registra eventos de autenticación. Un detector analiza tres fallos consecutivos por usuario, muestra una alerta y registra una respuesta de bloqueo **simulado**.
 
 > El archivo original `REAME.md` o `README.md` del Aula Virtual mencionado en el material existente no está disponible en esta carpeta. Falta incorporarlo si la docente lo exige. No se incluyen datos académicos ni de matrícula inventados.
 
@@ -83,7 +83,7 @@ Desde la raíz del repositorio:
 .\laboratorio-ciberseguridad\venv\Scripts\python.exe tests\medir_escenarios.py
 ```
 
-Las pruebas cubren registro válido, usuario/correo/contraseña inválidos, duplicados, normalización, hash verificable, login correcto e incorrecto, intento de inyección SQL, eventos, tres incidentes independientes, respuesta y fórmulas. `medir_escenarios.py` usa una base y logs temporales, ejecuta tres grupos de tres solicitudes HTTP fallidas y escribe la salida real en [evidencias/resultados.md](evidencias/resultados.md). Cada grupo se separa mediante un login correcto y se comprueba que el detector no vuelve a procesar el incidente.
+Las pruebas cubren el registro de dos usuarios ficticios, usuario/correo/contraseña inválidos, duplicados, normalización, hash verificable, login correcto e incorrecto, intento de inyección SQL, eventos, tres incidentes independientes, respuesta y fórmulas. `medir_escenarios.py` usa una base y logs temporales, ejecuta tres grupos de tres solicitudes HTTP fallidas y escribe la salida real en [evidencias/resultados.md](evidencias/resultados.md). Cada grupo se separa mediante un login correcto y se comprueba que el detector no vuelve a procesar el incidente.
 
 Mediciones observadas en esta ejecución (UTC 2026-11-09; hora local de El Salvador: 2026-11-08):
 
