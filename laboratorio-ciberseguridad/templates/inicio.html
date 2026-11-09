@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Inicio | Laboratorio de ciberseguridad{% endblock %}
+{% block content %}
+  <span class="card-kicker">LABORATORIO INTERACTIVO</span>
+  <h2>Comienza la práctica</h2>
+  <p class="muted">Crea una cuenta ficticia y prueba el inicio de sesión. Los eventos quedan registrados para analizarlos con el detector local.</p>
+  <a class="button" href="{{ url_for('registro') }}">Crear usuario</a>
+  <p class="switch">¿Ya tienes cuenta? <a href="{{ url_for('login') }}">Iniciar sesión</a></p>
+{% endblock %}

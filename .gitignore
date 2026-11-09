@@ -1,0 +1,19 @@
+# Entornos y cachés
+**/venv/
+**/.venv/
+**/__pycache__/
+**/*.py[cod]
+.pytest_cache/
+.vscode/
+.env
+.env.*
+*.bak
+
+# Datos locales y eventos de autenticación
+**/*.db
+**/*.db-*
+**/*.sqlite*
+**/eventos.log
+**/respuesta.log
+**/detecciones.json
+**/resultados.csv

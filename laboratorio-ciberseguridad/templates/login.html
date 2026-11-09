@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Acceso | Laboratorio de ciberseguridad{% endblock %}
+{% block heading %}Pon a prueba la detección.{% endblock %}
+{% block content %}
+  <span class="card-kicker">PASO 02 · AUTENTICACIÓN</span>
+  <h2>Iniciar sesión</h2>
+  <p class="muted">Los intentos se registran para medir la detección y respuesta.</p>
+  {% if error %}<div class="alert alert-error" role="alert">{{ error }}</div>{% endif %}
+  {% if exito %}<div class="alert alert-success" role="status">{{ exito }}</div>{% endif %}
+  <form method="post" action="{{ url_for('login') }}">
+    <label for="usuario">Usuario</label>
+    <input id="usuario" name="usuario" type="text" value="{{ usuario|default('') }}" autocomplete="username" required>
+    <label for="password">Contraseña</label>
+    <input id="password" name="password" type="password" autocomplete="current-password" required>
+    <button type="submit">Ingresar</button>
+  </form>
+  <p class="switch">¿No tienes cuenta? <a href="{{ url_for('registro') }}">Crear usuario</a></p>
+{% endblock %}

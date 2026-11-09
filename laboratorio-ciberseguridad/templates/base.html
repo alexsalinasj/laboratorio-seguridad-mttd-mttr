@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Laboratorio de ciberseguridad{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('inicio') }}"><span class="brand-mark">◆</span> Laboratorio U3</a>
+    <nav aria-label="Navegación principal">
+      <a href="{{ url_for('registro') }}">Registro</a>
+      <a href="{{ url_for('login') }}">Acceso</a>
+    </nav>
+  </header>
+  <main class="shell">
+    <section class="intro">
+      <span class="eyebrow">CÓDIGO SEGURO · MODELO OWASP</span>
+      <h1>{% block heading %}Seguridad que se puede medir.{% endblock %}</h1>
+      <p>Practica validación, autenticación y detección de incidentes con MTTD y MTTR.</p>
+      <div class="metrics">
+        <span><b>01</b> Prevención</span>
+        <span><b>02</b> Detección</span>
+        <span><b>03</b> Respuesta</span>
+      </div>
+    </section>
+    <section class="card" aria-label="Formulario">
+      {% block content %}{% endblock %}
+    </section>
+  </main>
+  <footer>Entorno académico · Usa únicamente datos ficticios</footer>
+</body>
+</html>
